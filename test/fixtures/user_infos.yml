@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  broj: MyString
+  datumRodjenja: 2016-09-27
+  user_id: 
+
+two:
+  broj: MyString
+  datumRodjenja: 2016-09-27
+  user_id: 
