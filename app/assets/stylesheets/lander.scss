@@ -1,3 +1,63 @@
 // Place all the styles related to the Lander controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// Učitava čitav bootstrap framework
+@import "bootstrap-sprockets";
+@import "bootstrap";
+body{
+margin: 0;
+padding: 0;
+font-family: 'Roboto', sans-serif;
+font-size: 14px;
+}
+.navbar > ul li a{
+	color: #fff;
+	font-weight: bold;
+	font-size: 12px;
+	margin-right: 10px;
+}
+
+.navbar-inner {
+    background-color:transparent;
+}
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+     width: 100%;
+	height: 350px;  
+}
+.logo {
+	color: #fff;
+	font-weight: 900;
+	margin-left:10%;
+	margin-right: 5%; 
+}
+.sadrzaj{
+height: 1000px;
+background-color: #fff
+}
+.group{
+	margin-top: 20px;
+}
+.footer-nav{
+	text-align: right;
+	list-style: none;
+}
+.footer-nav li{
+	display: inline;
+	padding: 0px 10px;
+}
+.footer-nav li a{
+	color: #999;
+	font-weight: 400;
+	font-size: 12px;
+	margin-right: 10px;
+}
+@media only screen and (max-width : 480px) {
+
+	.nav li a {
+		color: #999;
+	}
+	.nav{
+		margin-top: 40px;
+	}
+	}

@@ -1,5 +1,54 @@
-<h1>login</h1>
-<div style="text-align: center">
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<%= stylesheet_link_tag "sessions.css" %> 
+	</head>
+	<body>
+<div class="container">
+	<div class="navbar-header"></div>
+	
+
+
+	<div class="navbar navbar-fixed-top navbar-inverse" style="margin-bottom:100px">
+		
+			<a class="navbar-brand logo" href="/" >ABHS</a>
+			<ul class="nav navbar-nav ">
+				<li class="">
+					
+					<a  href="#">ŽENSKA OBUĆA</a>
+				</li>
+				<li>
+					<a href="#">MUŠKA OBUĆA</a>
+				</li>
+				<li>
+					<a href="#">DJEČJA OBUĆA</a>
+				</li>
+				<li>
+					<a href="#">SPORTSKA OBUĆA</a>
+				</li>
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right" style="margin-right:150px"> 
+				<% if current_user %>
+
+					   <li> Logged in as <%= current_user.ime %>. </li>
+					   <li> <%= link_to "Log out", sessions_logout_path %> </li>
+				<% else %>
+				   
+				   		<li> <%= link_to "Sign up", users_new_path %> </li>
+				  	    <li> <%= link_to "Log in", sessions_login_path %> </li>
+				  <% end %>
+			</ul>
+			
+		</div>
+		</div>
+	
+		<div class="text-center forma">		
+
+<div >
   <h1>Log in</h1>
   <%= form_tag(:action => 'login_attempt') do %>
     <p>Username or Email:</br> <%= text_field_tag(:username_or_email) %></p> 
@@ -10,3 +59,32 @@
   <%= content_tag :div, value, class: "flash #{key}" %>
 <% end %>
 </div>
+		
+			
+			</div>
+		</div>
+
+		<div class="panel-footer" style="margin-top:300px">
+			<div class="container">
+				<div class="row"></div>		
+					<div class="col-md-4">
+						<p style="color:#999; font-weight:400px; font-size:12px">
+							Copyright&copy;ABHShoes.All rights reserved.
+						</p>
+					</div>
+					<div class="col-md-6">
+						<ul class="footer-nav">
+							<li><a href="#">Zenska obuća</a></li>
+							<li><a href="#">Muska obuća</a></li>
+							<li><a href="#">Djecija obuća</a></li>
+							<li><a href="#">Sportska obuća</a></li>
+						</ul>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
+

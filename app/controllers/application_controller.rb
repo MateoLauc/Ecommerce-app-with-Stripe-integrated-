@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
   @current_user ||= User.find(session[:user_id]) if(session[:user_id])
 end
 helper_method :current_user
+
+
+#treba dodati zastitu, tako da vec logirani korisnik ne moze doci do forme za login 
+
 end
