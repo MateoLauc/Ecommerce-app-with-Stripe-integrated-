@@ -79,4 +79,7 @@ Rails.application.configure do
 
   #Konfiguracija AWS varijabli 
 
+ #Omogućuje satičko učitavanje slika na heroku 
+ config.serve_static_assets = true
+
 end

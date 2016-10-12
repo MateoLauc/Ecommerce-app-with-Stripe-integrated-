@@ -19,6 +19,9 @@ gem 'bootstrap-sass', '3.3.6'
 gem 'paperclip'
 gem 'aws-sdk', '~> 2.3'
 
+#Pomoć platformi na heroku
+gem 'rails_12factor', group: :production
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
