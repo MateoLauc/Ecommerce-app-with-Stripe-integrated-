@@ -7,3 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 roles = Role.create(naziv: 'Regular User ')
+categories= Category.create(name: 'Muška odjeća' ,vrsta: 'Ljetna' )

@@ -1,4 +1,5 @@
 class LanderController < ApplicationController
   def index
-  end
+  	@products = Product.all
+	end 
 end

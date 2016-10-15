@@ -38,4 +38,17 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+    #da bih mogao koristiti amazon S3 u razvoju
+    config.paperclip_defaults = {
+    storage: :s3,
+    s3_region: 'us-east-1',
+    s3_credentials: {
+    bucket: 'mateo-praksa',
+    access_key_id: 'AKIAJ6P2WXCRMP5H4TSA',
+    secret_access_key: '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',
+  }
+  
+}
+Paperclip.options[:command_path] = "/usr/bin"
 end

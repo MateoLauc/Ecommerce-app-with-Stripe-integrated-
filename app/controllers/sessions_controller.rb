@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         flash[:notice] = "Invalid Username or Password"
         flash[:color]= "invalid"
         #Ukoliko se ne autorizira korisnik ponovo ga vratimo na login_formu
-        render "login"	
+        redirect_to( :controller =>'sessions' , :action => 'login')	
         end
     end 
     def logout
