@@ -18,7 +18,5 @@ end
 
   def show
   	@product=Product.find(params[:id])
-    @product.delete
-    redirect_to( :controller =>'products' , :action => 'new')
   end 
 end
