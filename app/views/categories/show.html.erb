@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag "sessions.css" %> 
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header" style="margin-left:100px;">
+      <a class="navbar-brand" href="/">ABSHOES</a>
+    </div>
+    <ul class="nav navbar-nav" style="margin-left:100px;">
+      <% @categories.each do |c| %>
+          <li><a href="<%= category_path(c)%>"><%=c.name%></a></li>
+        <% end %>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" style="margin-right:150px"> 
+        <% if current_user %>
+
+             <li> Logged in as <%= current_user.ime %>. </li>
+             <li> <%= link_to "Log out", sessions_logout_path %> </li>
+        <% else %>
+           
+              <li> <%= link_to "Sign up", users_new_path %> </li>
+                <li> <%= link_to "Log in", sessions_login_path %> </li>
+          <% end %>
+      </ul>
+  </div>
+</nav>
+
+
+ 
+
+
+      <div class="container content">
+      <div class="row">
+<div class="col-sm-2" >
+          <div class="">
+            <p>FILTER<p>
+          </div>
+          <div class="lista">
+            <ol class="list-unstyled">
+              <li> 
+                  Brand:
+              <select class="selectpicker">
+                    <option>Vans</option>
+                    <option> Nike </option>
+                </select>
+              </li>
+              <li>
+                 Velicina:
+              <select class="selectpicker" >
+                    <option>Od 30 do 35</option>
+                    <option>Od 35 do 40 </option>
+                    <option>Od 41 do 45 </option>
+                </select>
+              </li>
+               <li>
+                 Boja:
+              <select class="selectpicker" >
+                   <option> Crna</option>
+                    <option>Crvena </option>
+                    <option>Zelena</option>
+                </select>
+              </li>
+                 <li>
+                 Stilovi:
+              <select class="selectpicker" >
+                    <option> Sportska obuća</option>
+                    <option>Zimska obuća </option>
+                    <option>Ljetna obuća</option>
+                </select>
+              </li>
+              <li>
+                   Cijena:
+              <select class="selectpicker" >
+                    <option>30KM-60KM</option>
+                    <option>60KM-90KM</option>
+                    <option>90KM-120KM</option>
+                    <option>120KM-&infin;</option>
+                </select>
+              </li>
+            </ol>
+          </div>
+         
+        </div>
+
+   <div class="col-sm-10 ">
+         <div class="col-sm-12">
+
+             <p id="categorija" style="float:left; display:inline">
+              <%=@category.name%></p> 
+            
+              <div class="cijena-nav">
+                 Cijena: 
+                <select class="selectpicker" id="cijena">
+                   <option>Od veće ka manjoj</option>
+                    <option> Od manje ka većoj </option>
+                </select>
+               
+         
+               </div>
+              </div>
+          
+         <% @products.each do |p| %>
+           <div class="col-sm-3 ">
+              <div>
+                    
+                  <a href="<%= product_path(p)%>"> <%= image_tag p.image.url(:square) %> </a>
+                  <span ><%=p.naziv %> <br>
+                    &euro;<%=p.cijena %>  </span>
+              </div>
+           </div>  
+        <% end %>
+
+        </div>
+
+        
+
+      </div>
+
+    </div>
+
+  <div class="panel-footer" id="footer-down" >
+      <div class="container">
+        <div class="row"></div>   
+          <div class="col-md-4">
+            <p style="color:#999; font-weight:400px; font-size:12px">
+              Copyright&copy;ABHShoes.All rights reserved.
+            </p>
+          </div>
+          <div class="col-md-8">
+            <ul class="footer-nav">
+              <% @categories.each do |c| %>
+          <li><a href="<%= category_path(c)%>"><%=c.name%></a></li>
+        <% end %> 
+            </ul>
+          </div>
+      </div>
+    </div>
+</body>
+</html>

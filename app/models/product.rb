@@ -11,11 +11,10 @@ has_attached_file :image ,styles: {
 attr_accessor :category
 before_create :default_category_value
    def default_category_value
-      self.category_id =1
+      self.category_id =2
   end 
 validates :naziv, :presence => true 
 validates :opis,	:presence => true 
 validates :cijena, :presence => true 
 validates :kolicina, :presence => true 
-
 end	

@@ -11,5 +11,9 @@ helper_method :current_user
 
 
 #treba dodati zastitu, tako da vec logirani korisnik ne moze doci do forme za login 
-
+before_filter :get_categories
+protected
+def get_categories
+  @categories = Category.take(4)
+end
 end

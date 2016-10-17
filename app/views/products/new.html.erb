@@ -1,13 +1,47 @@
- 
+ <!DOCTYPE html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<div style="margin-top:100px; margin-left:100px; background-color:#999; width:30%">
+	</head>
+	<body>
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header" style="margin-left:100px;">
+      <a class="navbar-brand" href="/">ABSHOES</a>
+    </div>
+    <ul class="nav navbar-nav" style="margin-left:100px;">
+      <% @categories.each do |c| %>
+          <li><a href="<%= category_path(c)%>"><%=c.name%></a></li>
+        <% end %>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" style="margin-right:150px"> 
+        <% if current_user %>
+
+             <li> Logged in as <%= current_user.ime %>. </li>
+             <li> <%= link_to "Log out", sessions_logout_path %> </li>
+        <% else %>
+           
+              <li> <%= link_to "Sign up", users_new_path %> </li>
+                <li> <%= link_to "Log in", sessions_login_path %> </li>
+          <% end %>
+      </ul>
+  </div>
+</nav>
+<div class="container " >
+<div ><div id="proizvod-forma" >
 	<h1>Dodavanje novog proizvoda</h1>
  <%= form_for(:product, :url => products_path , :html => {:multipart => true}) do |f| %>
       <p> Naziv proizvoda:</br> <%= f.text_field :naziv%> </p>
        <p> Opis:</br> <%= f.text_area :opis%> </p>
       <p> Cijena:</br> <%= f.number_field :cijena%> </p>
       <p> Kolicina:</br> <%= f.number_field :kolicina%></p>
-      <p> Slika: </br> <%= f.file_field :image %></p>
+      <p> Slika: </p> <%= f.file_field :image %>
       <p><%= f.submit :DodajProizvod %></p>
     <% end %>
+</div>
 </div>    
+</body>
+</html>

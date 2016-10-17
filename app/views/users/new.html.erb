@@ -15,21 +15,11 @@
   <div class="navbar navbar-fixed-top navbar-inverse">
     
       <a class="navbar-brand logo" href="/" >ABHS</a>
-      <ul class="nav navbar-nav ">
-        <li class="">
-          
-          <a  href="#">ŽENSKA OBUĆA</a>
-        </li>
-        <li>
-          <a href="#">MUŠKA OBUĆA</a>
-        </li>
-        <li>
-          <a href="#">DJEČJA OBUĆA</a>
-        </li>
-        <li>
-          <a href="#">SPORTSKA OBUĆA</a>
-        </li>
-      </ul>
+      <ul class="nav navbar-nav" style="margin-left:100px;">
+      <% @categories.each do |c| %>
+          <li><a href="<%= category_path(c)%>"><%=c.name%></a></li>
+        <% end %>
+    </ul>
 
       <ul class="nav navbar-nav navbar-right" style="margin-right:150px"> 
         <% if current_user %>
@@ -68,7 +58,7 @@
 
 
   </div>
-  <div class="panel-footer" >
+  <div class="panel-footer navbar-fixed-bot" >
       <div class="container">
         <div class="row"></div>   
           <div class="col-md-4">
@@ -76,12 +66,11 @@
               Copyright&copy;ABHShoes.All rights reserved.
             </p>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-8">
             <ul class="footer-nav">
-              <li><a href="#">Zenska obuća</a></li>
-              <li><a href="#">Muska obuća</a></li>
-              <li><a href="#">Djecija obuća</a></li>
-              <li><a href="#">Sportska obuća</a></li>
+             <% @categories.each do |c| %>
+          <li><a href="<%= category_path(c)%>"><%=c.name%></a></li>
+        <% end %>
             </ul>
           </div>
       </div>

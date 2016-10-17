@@ -7,54 +7,78 @@
 
 	</head>
 	<body>
-	<div class="navbar navbar-fixed-top navbar-inverse" style="margin-bottom:100px">
-		
-			<a class="navbar-brand logo" href="/" >ABHS</a>
-			<ul class="nav navbar-nav ">
-				<li class="">
-					
-					<a  href="#">ŽENSKA OBUĆA</a>
-				</li>
-				<li>
-					<a href="#">MUŠKA OBUĆA</a>
-				</li>
-				<li>
-					<a href="#">DJEČJA OBUĆA</a>
-				</li>
-				<li>
-					<a href="#">SPORTSKA OBUĆA</a>
-				</li>
-			</ul>
+	    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header" style="margin-left:100px;">
+      <a class="navbar-brand" href="/">ABSHOES</a>
+    </div>
+    <ul class="nav navbar-nav" style="margin-left:100px;">
+      <% @categories.each do |c| %>
+          <li><a href="<%= category_path(c)%>"><%=c.name%></a></li>
+        <% end %>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" style="margin-right:150px"> 
+        <% if current_user %>
 
-			<ul class="nav navbar-nav navbar-right" style="margin-right:150px"> 
-				<% if current_user %>
-
-					   <li> Logged in as <%= current_user.ime %>. </li>
-					   <li> <%= link_to "Log out", sessions_logout_path %> </li>
-				<% else %>
-				   
-				   		<li> <%= link_to "Sign up", users_new_path %> </li>
-				  	    <li> <%= link_to "Log in", sessions_login_path %> </li>
-				  <% end %>
-			</ul>
-			
-		</div>
-		</div>	
-		<div style="margin-top:100px">
+             <li> Logged in as <%= current_user.ime %>. </li>
+             <li> <%= link_to "Log out", sessions_logout_path %> </li>
+        <% else %>
+           
+              <li> <%= link_to "Sign up", users_new_path %> </li>
+                <li> <%= link_to "Log in", sessions_login_path %> </li>
+          <% end %>
+      </ul>
+  </div>
+</nav>
+		<div style="margin-top:50px">
 			<div class="container group">
 				<div class="row">
-					<div class="col-md-6 col-xs-12">
-						<%= image_tag @product.image.url(:medium) %> 
-					</div>
-					<div class="col-md-6 col-xs-12">
-						<h3 style="font-weigth:bold"><%=@product.naziv %></h3><br>
-						<p><%= @product.opis%></p>
-					</div>
-				</div>
-			</div>
+						<div class="col-md-6 col-xs-12">
+							<%= image_tag @product.image.url(:medium) %> 
+						</div>
+					
+						<div class="col-md-6 col-xs-12">
+							<h3 style="font-weigth:bold"><%=@product.naziv %></h3><br>
+							<p><%= @product.opis%></p>
+								<div class="col-md-4" style="padding:0px;">Velicina:</br>
+									<select class="selectpicker" style="width:180px;">
+					                    <option> 43</option>
+					                    <option>44 </option>
+					                    <option>45 </option>
+					                </select>
+					            </div>
 
+					                <div class="col-md-5" style="float:left; padding:0px;" >
+					                	Kolicina: 
+					                <input value="1" style="width:70px;display:block" >
+													
+					                </div>
+										
+						</div>
+				</div>
+			<div class="text-center" style="margin-top:100px;">
+				<p>Slicni proizvodi </p>
+			<div class="container" style="margin-top:50px;">
+				<% @products.each do |p| %>
+    <div class="col-md-3 text-center">
+    	<div class="element">
+    		<span class="text"><p ><%=p.naziv %></p>
+    		<p>&euro;<%=p.cijena %> </p> </span>
+      <a href="<%= product_path(p)%>"> <%= image_tag p.image.url(:square) %> </a>
+    		 <a href="<%= product_path(p)%>"><div class="hov" >
+      	</div></a>
+    			
+      </div>
+    </div>
+<% end %>
+			</div>
+			</div>
+			</div>
 		</div>
-<div class="panel-footer footer" style="margin-top:300px ">
+
+
+
+<div class="panel-footer" style="margin-top:150px ">
 			<div class="container">
 				<div class="row"></div>		
 					<div class="col-md-4">
@@ -62,12 +86,11 @@
 							Copyright&copy;ABHShoes.All rights reserved.
 						</p>
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-8">
 						<ul class="footer-nav">
-							<li><a href="#">Zenska obuća</a></li>
-							<li><a href="#">Muska obuća</a></li>
-							<li><a href="#">Djecija obuća</a></li>
-							<li><a href="#">Sportska obuća</a></li>
+							 <% @categories.each do |c| %>
+          <li><a href="<%= category_path(c)%>"><%=c.name%></a></li>
+        <% end %>	
 						</ul>
 					</div>
 			</div>

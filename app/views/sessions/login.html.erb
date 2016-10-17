@@ -64,20 +64,19 @@
 			</div>
 		</div>
 
-		<div class="panel-footer" style="margin-top:300px">
+		<div class="panel-footer" id="footer-down">
 			<div class="container">
 				<div class="row"></div>		
 					<div class="col-md-4">
-						<p style="color:#999; font-weight:400px; font-size:12px">
+						<p style="color:#999; font-weight:400; font-size:12px">
 							Copyright&copy;ABHShoes.All rights reserved.
 						</p>
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-8">
 						<ul class="footer-nav">
-							<li><a href="#">Zenska obuća</a></li>
-							<li><a href="#">Muska obuća</a></li>
-							<li><a href="#">Djecija obuća</a></li>
-							<li><a href="#">Sportska obuća</a></li>
+							 <% @categories.each do |c| %>
+          <li><a href="<%= category_path(c)%>"><%=c.name%></a></li>
+        <% end %>	
 						</ul>
 					</div>
 			</div>

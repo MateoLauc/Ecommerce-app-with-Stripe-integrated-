@@ -1,5 +1,5 @@
 class LanderController < ApplicationController
   def index
-  	@products = Product.all
+  	@products = Product.take(16)
 	end 
 end
