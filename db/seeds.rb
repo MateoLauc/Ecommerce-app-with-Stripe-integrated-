@@ -7,4 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 roles = Role.create(naziv: 'Regular User ')
-categories= Category.create(name: 'Muška odjeća' ,vrsta: 'Ljetna' )
+categories= Category.create(name: 'DJECJA ODJEĆA' ,vrsta: 'Ljetna' )
+categories= Category.create(name: 'ZENSKA ODJEĆA' ,vrsta: 'Zimska' )
+categories= Category.create(name: 'SPORTSKA odjeća' ,vrsta: 'Ljetna' )
