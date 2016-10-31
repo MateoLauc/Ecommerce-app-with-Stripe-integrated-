@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
 belongs_to :category
+ has_many :variants
 #Ova metoda asocira atribut sa prikacenim fajlom 
 has_attached_file :image ,styles: {
     thumb: '100x100>',

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161012191828) do
+ActiveRecord::Schema.define(version: 20161023105616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,11 +21,13 @@ ActiveRecord::Schema.define(version: 20161012191828) do
     t.string "vrsta"
   end
 
+  create_table "colors", force: :cascade do |t|
+    t.string "color"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string   "naziv"
     t.text     "opis"
-    t.float    "cijena"
-    t.integer  "kolicina"
     t.integer  "category_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
@@ -39,6 +41,10 @@ ActiveRecord::Schema.define(version: 20161012191828) do
     t.string   "naziv"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sizes", force: :cascade do |t|
+    t.integer "size"
   end
 
   create_table "user_infos", force: :cascade do |t|
@@ -63,7 +69,22 @@ ActiveRecord::Schema.define(version: 20161012191828) do
 
   add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
 
+  create_table "variants", force: :cascade do |t|
+    t.integer "color_id"
+    t.integer "size_id"
+    t.integer "product_id"
+    t.integer "qty"
+    t.decimal "price"
+  end
+
+  add_index "variants", ["color_id"], name: "index_variants_on_color_id", using: :btree
+  add_index "variants", ["product_id"], name: "index_variants_on_product_id", using: :btree
+  add_index "variants", ["size_id"], name: "index_variants_on_size_id", using: :btree
+
   add_foreign_key "products", "categories"
   add_foreign_key "user_infos", "users"
   add_foreign_key "users", "roles"
+  add_foreign_key "variants", "colors"
+  add_foreign_key "variants", "products"
+  add_foreign_key "variants", "sizes"
 end

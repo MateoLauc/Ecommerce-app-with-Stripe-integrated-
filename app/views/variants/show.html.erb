@@ -30,43 +30,48 @@
       </ul>
   </div>
 </nav>
+
 		<div style="margin-top:50px">
+
 			<div class="container group">
+
 				<div class="row">
+						
 						<div class="col-md-6 col-xs-12">
-							<%= image_tag @product.image.url(:medium) %> 
+							<%= image_tag @variant.product.image.url(:medium) %> 
 						</div>
 					
 						<div class="col-md-6 col-xs-12">
-							<h3 style="font-weigth:bold"><%=@product.naziv %></h3><br>
-							<p><%= @product.opis%></p>
+							<h3 style="font-weigth:bold"><%=@variant.product.naziv %></h3><br>
+							<p><%= @variant.product.opis%></p>
+								
 								<div class="col-md-4" style="padding:0px;">Velicina:</br>
-									<select class="selectpicker" style="width:180px;">
-					                    <option> 43</option>
-					                    <option>44 </option>
-					                    <option>45 </option>
-					                </select>
+										<select class="selectpicker" style="width:180px;">
+						                    <option> 43</option>
+						                    <option>44 </option>
+						                    <option>45 </option>
+						                </select>
 					            </div>
 
-					                <div class="col-md-5" style="float:left; padding:0px;" >
+					            <div class="col-md-5" style="float:left; padding:0px;" >
 					                	Kolicina: 
 					                <input value="1" style="width:70px;display:block" >
 													
-					                </div>
+					            </div>
 										
 						</div>
 				</div>
+
 			<div class="text-center" style="margin-top:100px;">
 				<p>Slicni proizvodi </p>
 			<div class="container" style="margin-top:50px;">
-				<% @products.each do |p| %>
+				<% @variants.each do |v| %>
     <div class="col-md-3 text-center">
     	<div class="element">
-    		<span class="text"><p ><%=p.naziv %></p>
-    		<p>&euro;<%=p.cijena %> </p> </span>
-      <a href="<%= product_path(p)%>"> <%= image_tag p.image.url(:square) %> </a>
-    		 <a href="<%= product_path(p)%>"><div class="hov" >
-      	</div></a>
+    		<span class="text"><p ><%=v.product.naziv %></p>
+    		<p>&euro;<%=v.price  %> </p> </span>
+     		 <a href="<%= variant_path(v)%>"> <%= image_tag v.product.image.url(:square) %> </a>
+       <a href="<%= variant_path(v)%>"><div class="hov" ></div></a>
     			
       </div>
     </div>
@@ -88,9 +93,11 @@
 					</div>
 					<div class="col-md-8">
 						<ul class="footer-nav">
-							 <% @categories.each do |c| %>
-          <li><a href="<%= category_path(c)%>"><%=c.name%></a></li>
-        <% end %>	
+						
+								 <% @categories.each do |c| %>
+					         		 <li>
+					         		 	<a href="<%= category_path(c)%>"><%=c.name%></a></li>
+					        <% end %>	
 						</ul>
 					</div>
 			</div>

@@ -78,13 +78,13 @@
 		</div>
 
 		<div class="container sadrzaj group">
-			<% @products.each do |p| %>
+			<% @variants.each do |v| %>
     <div class="col-md-3 text-center">
     	<div class="element">
-    		<span class="text"><p ><%=p.naziv %></p>
-    		<p>&euro;<%=p.cijena %> </p> </span>
-      <a href="<%= product_path(p)%>"> <%= image_tag p.image.url(:square) %> </a>
-    		 <a href="<%= product_path(p)%>"><div class="hov" >
+    		<span class="text"><p ><%=v.product.naziv %></p>
+    		 <p>&euro;<%=v.price %>  </p> </span>  
+      <a href="<%= variant_path(v)%>"> <%= image_tag v.product.image.url(:square) %></a>
+    		 <a href=" <%= variant_path(v) %>"><div class="hov">
       	</div></a>
     			
       </div>

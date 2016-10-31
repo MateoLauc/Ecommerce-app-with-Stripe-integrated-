@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  get 'categories/show'
 
-  get 'products/new'
+  get 'categories/show'
 
   get 'users/new'
   post '/users/create'
@@ -15,8 +14,8 @@ Rails.application.routes.draw do
   post 'sessions/login_attempt'
 
   resources :categories
+  resources :variants
 
-  resources :products
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

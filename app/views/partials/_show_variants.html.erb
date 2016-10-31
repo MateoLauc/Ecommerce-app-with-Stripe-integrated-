@@ -1,0 +1,10 @@
+ <% @variants.each do |v| %>
+           <div class="col-sm-3 ">
+              <div>
+                    
+                  <a href="<%= variant_path(v)%>"> <%= image_tag v.product.image.url(:square) %> </a>
+                  <span ><%=v.product.naziv %> <br>
+                    &euro;<%=v.price %>  </span>
+              </div>
+           </div>  
+        <% end %>
