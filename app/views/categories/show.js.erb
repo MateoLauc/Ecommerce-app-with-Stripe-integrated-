@@ -1,3 +1,6 @@
 // za prikaz prozivoda nakon slanja ajax zahtjeva 
 
 alert('Broj pronadjenih: <%=@variants.size%>');
+
+var html = "<%= j(render('partials/show_variants')) %>";
+$('#proizvodi-search').html(html);

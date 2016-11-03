@@ -16,8 +16,8 @@
              <li> <%= link_to "Log out", sessions_logout_path %> </li>
         <% else %>
            
-              <li> <%= link_to "Sign up", users_new_path %> </li>
-                <li> <%= link_to "Log in", sessions_login_path %> </li>
+              <li> <%= link_to "Registriraj se", users_new_path %> </li>
+                <li> <%= link_to "Prijavi se", sessions_login_path %> </li>
           <% end %>
       </ul>
   </div>
@@ -40,7 +40,7 @@
       <%= form_tag category_path, method: :get , id: "pretraga",remote: true do%> 
      <ol class="list-unstyled">
               <li> 
-         Color: <br>
+         Boja: <br>
                   <%= select_tag "color_id", options_from_collection_for_select(@colors, "id", "color")%>
               </li>
               <li>
@@ -51,6 +51,15 @@
                     <option VALUE="60-90">60KM-90KM</option>
                     <option VALUE="90-120">90KM-120KM</option>
                     <option VALUE="120-999">120KM-&infin;</option>
+                </select>
+              </li>
+              <li>
+                Velicina:
+                <select class="selectpicker" id="size-filter" name="sizeRange">
+                  <option value="35-38">Od 35 do 38</option>
+                  <option value="39-41">Od 39 do 41</option>
+                  <option value="42-44">Od 42 do 44</option>
+                  <option value="45-55">45 i više</option>
                 </select>
               </li>
                </ol >
@@ -67,9 +76,9 @@
 
                   <div class="cijena-nav">
                      Cijena: 
-                    <select class="selectpicker" id="cijena">
-                       <option><%= link_to "Od vece ka manjoj", :direction =>"desc" %></option>
-                        <option> <%= link_to "Od manje ka većoj", :direction =>"asc" %></option>
+                    <select class="selectpicker" form="pretraga" id="cijena" name="cijena">
+                       <option value="DESC">Od veće ka manjoj</option>
+                        <option value="ASC">Od manje ka većoj</option>
                     </select>
                    
              
@@ -87,7 +96,7 @@
 
   
 <script>
-  $("#price-filter, #color_id").on('change', function() {
+  $("#price-filter, #color_id, #size-filter, #cijena").on('change', function() {
     $("#pretraga").submit();
   })
 </script>
