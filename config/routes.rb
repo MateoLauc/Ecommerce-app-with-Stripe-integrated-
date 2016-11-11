@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
+  resources :line_items
+ 
+  get 'cart/:id' => 'cart#show'
+
   get 'categories/show'
+
+  get 'carts/show'
 
   get 'users/new'
   post '/users/create'
@@ -15,6 +21,7 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :variants
+  resources :charges
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

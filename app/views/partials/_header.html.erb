@@ -1,0 +1,26 @@
+<div class="container" style="margin-bottom:100px">
+
+	<div class="navbar navbar-fixed-top navbar-inverse" >
+		
+			<a class="navbar-brand logo" href="/" >ABHS</a>
+			<ul class="nav navbar-nav ">
+			<ul class="nav navbar-nav" style="margin-left:100px;">
+    			  <% @categories.each do |c| %>
+          			<li><a href="<%= category_path(c)%>"><%=c.name%></a></li>
+       			 <% end %>
+  		    </ul>
+			<ul class="nav navbar-nav navbar-right" style="margin-left:150px"> 
+				<% if current_user %>
+
+					   <li> Logged in as <%= current_user.ime %>. </li>
+					   <li> <%= link_to "Log out", sessions_logout_path %> </li>
+				<% else %>
+				   
+				   		<li> <%= link_to "Sign up", users_new_path %> </li>
+				  	    <li> <%= link_to "Log in", sessions_login_path %> </li>
+				  <% end %>
+			</ul>
+			
+	</div>
+</div>
+	

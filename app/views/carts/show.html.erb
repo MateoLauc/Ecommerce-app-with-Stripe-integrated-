@@ -1,0 +1,46 @@
+ <%= render :partial => "partials/header" %>
+<div class="container" style="min-height:848px; padding-top:30px;">
+
+
+	<div class="col-md-9">
+		<div class="col-md-12" style="padding-left:0px">
+			<p style="font-size:24px; margin-bottom:70px;">Vasa korpa </p>
+		</div>
+		<!-- prikaz proizvoda -->
+		 <% @line_items.each do |li| %>
+		 	<div class="col-md-12">
+		 		<div class="col-md-4"><%=image_tag li.variant.product.image.url(:square)%></div>
+				<div class="col-md-4 " style="padding-top:25px">
+					<p>Name: <%=li.variant.product.naziv%></p>
+					<p>Size: <%=li.variant.size.size%></p>
+					<p>Color: <%=li.variant.color.color%></p>
+					<p>Id: <%= li.variant.id %> <p>		
+					<p>Id korpe: <%= li.cart.id %> <p>	
+
+				</div>
+				<div class="col-md-4" >
+					<div class="cijenaKolicina">
+					<span>Price:</span>  <br><strong><%=li.variant.price%>KM</strong>
+					<div class="kolicina"><div class="qty"><label >Quantity:</label> 
+						<input  name="kolicina" value="<%=li.variant.qty%> ">
+					</div>
+						  
+					</div>
+					</div>
+
+				</div>
+			</div>	
+		 <%end %>
+	</div>
+
+
+	<div class="col-md-3" >
+		<fieldset class="scheduler-border">
+		<strong>Cijena: <%=@suma %>KM</strong > <br>
+		<strong>Dostava: 30KM</strong><br>
+		<strong>Ukupno: <%=@suma+30.0 %>KM</strong>
+	</fieldset>
+	</div>
+
+</div>
+ <%= render :partial => "partials/footer" %>

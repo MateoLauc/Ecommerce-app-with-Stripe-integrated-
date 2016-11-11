@@ -19,6 +19,9 @@ gem 'bootstrap-sass', '3.3.6'
 gem 'paperclip'
 gem 'aws-sdk', '~> 2.3'
 
+#gem za plaćanje 
+gem 'stripe'
+
 #Pomoć platformi na heroku
 gem 'rails_12factor', group: :production
 

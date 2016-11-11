@@ -1,0 +1,21 @@
+<div class="panel-footer" >
+			<div class="container">
+				<div class="row"></div>		
+					<div class="col-md-4">
+						<p style="color:#999; font-weight:400px; font-size:12px">
+							Copyright&copy;ABHShoes.All rights reserved.
+						</p>
+					</div>
+					<div class="col-md-8">
+						<ul class="footer-nav">
+						
+								 <% @categories.each do |c| %>
+					         		 <li>
+					         		 	<a href="<%= category_path(c)%>"><%=c.name%></a></li>
+					        <% end %>	
+						</ul>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>

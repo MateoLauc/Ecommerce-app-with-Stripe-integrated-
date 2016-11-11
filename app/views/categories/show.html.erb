@@ -4,12 +4,12 @@
     <div class="navbar-header" style="margin-left:100px;">
       <a class="navbar-brand" href="/">ABSHOES</a>
     </div>
-    <ul class="nav navbar-nav" style="margin-left:100px;">
+    <ul class="nav navbar-nav" style="margin-left:300px;">
       <% @categories.each do |c| %>
           <li><a href="<%= category_path(c)%>"><%=c.name%></a></li>
         <% end %>
     </ul>
-    <ul class="nav navbar-nav navbar-right" style="margin-right:150px"> 
+    <ul class="nav navbar-nav navbar-right" style="margin-right:350px"> 
         <% if current_user %>
 
              <li> Logged in as <%= current_user.ime %>. </li>
@@ -41,11 +41,12 @@
      <ol class="list-unstyled">
               <li> 
          Boja: <br>
-                  <%= select_tag "color_id", options_from_collection_for_select(@colors, "id", "color")%>
+                  <%= select_tag "color_id", options_from_collection_for_select([Color.new(color:"--sve boje--",id: -1)]+@colors, "id", "color")%>
               </li>
               <li>
                  Cijena:
               <select class="selectpicker" id="price-filter" name="priceRange">
+                    <option VALUE="0-999" selected>--Sve cijene--</option>
                     <option VALUE="0-30">0KM-30KM</option>
                     <option VALUE="30-60">30KM-60KM</option>
                     <option VALUE="60-90">60KM-90KM</option>
@@ -56,7 +57,8 @@
               <li>
                 Velicina:
                 <select class="selectpicker" id="size-filter" name="sizeRange">
-                  <option value="35-38">Od 35 do 38</option>
+                  <option value="0-100" selected>--Sve velicine--</option>
+                  <option value="35-38" >Od 35 do 38</option>
                   <option value="39-41">Od 39 do 41</option>
                   <option value="42-44">Od 42 do 44</option>
                   <option value="45-55">45 i više</option>

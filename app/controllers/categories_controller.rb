@@ -2,10 +2,10 @@ class CategoriesController < ApplicationController
     helper_method :smjer
   def show
       # Pronaći ID poslane kategorije i onda iz nje izabrati proizvode
-    	@category= Category.find(params[:id])
+      @category= Category.find(params[:id])
       query = QueryBuilder.build(params)
-    	@variants= Variant.joins(:size).where(query).order('price'+' '+ smjer).joins(:product).where(products: {category_id: @category.id})
-    	#@variants=@variants.limit(16) opt
+      @variants= Variant.joins(:size).where(query).order('price'+' '+ smjer).joins(:product).where(products: {category_id: @category.id})
+      #@variants=@variants.limit(16) opt
       @colors= Color.all
 
       respond_to do |format|
@@ -15,11 +15,11 @@ class CategoriesController < ApplicationController
 
   end
 
-	private
-		
-		def smjer
-		  params[:cijena] || "asc"
-		end 
+  private
+    
+    def smjer
+      params[:cijena] || "asc"
+    end 
     
       # def condition 
       #      @cond=""
@@ -52,8 +52,10 @@ class CategoriesController < ApplicationController
         def self.build(parameters)
             query = []
             FILTERS.each do |filter|
+              if(parameters[filter]!='-1')
               query << QueryBuilder.send(filter, parameters[filter])
             end
+          end
 
             if(query[0] != nil || query[1] != nil)
              query.join(' AND ')
@@ -90,4 +92,3 @@ class CategoriesController < ApplicationController
 
       end
 end
-

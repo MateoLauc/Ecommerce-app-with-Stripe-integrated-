@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	</head>
-	<body>
 	    <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header" style="margin-left:100px;">
@@ -44,10 +35,9 @@
 						<div class="col-md-6 col-xs-12">
 							<h3 style="font-weigth:bold"><%=@variant.product.naziv %></h3><br>
 							<p><%= @variant.product.opis%></p>
-								
-								<div class="col-md-4" style="padding:0px;">Velicina:</br>
-										<select class="selectpicker" style="width:180px;">
-						                    <option> 43</option>
+								<div class="col-md-4" name="velicina" style="padding:0px;">Velicina:</br>
+										<select class="selectpicker" form="korpa" style="width:180px;">
+						                    <option>43</option>
 						                    <option>44 </option>
 						                    <option>45 </option>
 						                </select>
@@ -55,10 +45,15 @@
 
 					            <div class="col-md-5" style="float:left; padding:0px;" >
 					                	Kolicina: 
-					                <input value="1" style="width:70px;display:block" >
+					                <input value="1" name="qty" form="korpa" style="width:70px;display:block" >
 													
 					            </div>
-										
+								<div id="dugme" class="col-md-6" style="padding:10px 0px">
+									<%= form_tag line_items_path(:variant_id => @variant), method: :post , id: "korpa" do%>
+									 
+									<%= submit_tag "DODAJ U KORPU"%>
+								</div>
+								<%end%>	
 						</div>
 				</div>
 
@@ -104,6 +99,3 @@
 		</div>
 	</div>
 </div>
-
-	</body>
-</html>	
