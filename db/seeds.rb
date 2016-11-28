@@ -11,6 +11,7 @@
 #categories= Category.create(name: 'ZENSKA ODJEĆA' ,vrsta: 'Zimska' )
 #categories= Category.create(name: 'SPORTSKA odjeća' ,vrsta: 'Ljetna' )
 
+=begin
 colors = Color.create(color: 'Black')
 colors = Color.create(color: 'Gray')
 colors = Color.create(color: 'Coral')
@@ -26,3 +27,9 @@ sizes= Size.create(size: '40')
 sizes= Size.create(size: '41')
 sizes= Size.create(size: '42')
 sizes= Size.create(size: '43')
+=end
+countries= Country.create(name: 'Bosna i Hercegovina')
+countries= Country.create(name: 'Hrvatska')
+countries= Country.create(name: 'Srbija')
+countries= Country.create(name: 'Italija')
+countries= Country.create(name: 'Austrija')

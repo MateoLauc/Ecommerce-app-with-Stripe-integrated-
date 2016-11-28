@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nazivproivoda: MyString
+  qty: 1
+  cijena: 9.99
+  size: 1
+  color: MyString
+  order_id: 
+
+two:
+  nazivproivoda: MyString
+  qty: 1
+  cijena: 9.99
+  size: 1
+  color: MyString
+  order_id: 

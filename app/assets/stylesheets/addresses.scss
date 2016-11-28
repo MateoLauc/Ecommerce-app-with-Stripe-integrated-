@@ -1,0 +1,36 @@
+#AddressCheck {
+  display: inline-block;
+}
+#AddressCheck label {
+  display: block;
+  padding-left: 15px;
+  text-indent: -15px;
+  font-weight: 500;
+}
+#AddressCheck input {
+  width: 13px;
+  height: 13px;
+  padding: 0;
+  margin:0;
+  vertical-align: bottom;
+  position: relative;
+  top: -1px;
+  *overflow: hidden;
+}
+#link-adrese{
+float:right;
+color: goldenrod;
+font-size: 16px;
+}
+#link-koristeni{
+text-decoration: none;
+color: #444;
+font-size: 16px;
+
+}
+hr {
+  height: 10px;
+  color: #999;
+  margin: 10px 0px;
+  border-top: 3px solid;
+}

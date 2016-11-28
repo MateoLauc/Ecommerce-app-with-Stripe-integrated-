@@ -28,6 +28,7 @@
 
 					   <li><p style="color:#fff"> Logged in as <%= current_user.ime %></p> </li>
 					   <li> <%= link_to "Log out", sessions_logout_path %> </li>
+					   <li><a href="carts/show"><span class="glyphicon glyphicon-shopping-cart"></span> <span class="badge" style="color:#f20"><%=current_cart.line_items.count%></span></a></li>
 				<% else %>
 				   
 				   		<li> <%= link_to "Sign up", users_new_path %> </li>

@@ -1,0 +1,32 @@
+ <%= render :partial => "partials/header" %>
+ <div class="container" style="min-height:848px; padding-top:20px;">
+ 	<div class="col-md-9">
+	<div class="panel panel-default">
+  <div class="panel-heading">Proizvodi za kupnju:</div>
+  <!-- Table -->
+  <table class="table table-striped">
+  	<thead>
+      <tr>
+        <th>Naziv proizvoda</th>
+        <th>Količina</th>
+        <th>Cijena</th>
+      </tr>
+    </thead>
+    <tbody>
+    	 <% @line_items.each do |li| %>
+    		 <tr>	
+    	 		<td><%=li.variant.product.naziv%></td>
+    	 		<td><%=li.variant.qty%></td>
+    	 		<td><%=li.variant.price%></td>
+    		 </tr>
+    	 <%end%>
+    </tbody>
+  </table>
+</div>
+	</div>
+	<div class="col-md-3">
+		ID adrese: <%= @adresa%> <br>
+	<%= button_to "PLATI", orders_path %>
+	</div>
+</div>
+ <%= render :partial => "partials/footer" %>

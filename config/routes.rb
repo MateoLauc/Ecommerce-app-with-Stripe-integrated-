@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+ 
+
   resources :line_items
  
   get 'cart/:id' => 'cart#show'
@@ -15,14 +17,15 @@ Rails.application.routes.draw do
 
 
   get 'sessions/login'
-  get 'sessions/login_attempt'
+  get 'sessions/login_attempt'  
   get 'sessions/logout'
   post 'sessions/login_attempt'
 
   resources :categories
   resources :variants
   resources :charges
-
+  resources :addresses
+  resources :orders
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

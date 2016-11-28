@@ -1,0 +1,135 @@
+ <%= render :partial => "partials/header" %>
+<div class="container" style="min-height:848px; padding-top:20px;">
+
+
+	<div class="col-md-9">
+		<div class="col-md-12">
+		 		<p style="font-size:24px; margin-bottom:10px; margin-left:10px;">Adresa za dostavu </p>
+		</div> 		
+		<% if @adrese.empty? %>
+
+		 	<div class="col-md-12">
+		 		
+		 	  	<%= form_tag "/addresses", :id => 'forma_adrese' do %>
+			  
+			  	<div style="margin-bottom:50px;">
+			    	<%= render 'partials/addresses_form' %> 
+			    </div>    
+			      	<span style="font-size:24px; ">Adresa za račun  </span>
+			    <div id="AddressCheck">
+			    	<label > Koristi adresu dostave:
+			    		<input  type="checkbox" id="checkbox1" value="value" />
+			    	</label>
+			    </div><br>
+
+			    <div id="azr">
+			    <%= render 'partials/addresses_form' %> 
+			    </div> 
+
+			 	<input id="adresa" name="adresa" type="hidden" value="0" />
+				<% end %>	
+
+		    </div>	
+		   <% else %>
+		   			<div class="col-md-8">
+		   				<div class="col-md-12">
+		   					<a id="link-koristeni" href="no-script.html">Korištene adrese za dostavu</a> 
+		   					<a id="link-adrese" href="no-script.html" >Koristi novu adresu</a>
+		   					<hr>
+		   				</div>
+
+		   				<div id="koristene-adrese">
+							<% @adrese.each do |ad| %>	  
+								<div class="col-md-6 address_div" style="height:2
+								50px;border:1px solid black; ">
+									<%=ad.imeprezime%><br>
+									<%=ad.naziv%><br>
+									<%=ad.city%><br>
+									<%=ad.regija%><br>
+									<%=ad.country.name%>
+								</div>
+							<%end%> 
+						</div>
+
+					</div>
+		   <%end%>  
+
+		<div id="adr-click" class="col-md-12" >
+		 		
+		 	  	<%= form_tag "/addresses", :id => 'forma_adrese' do %>
+			  
+			  	<div style="margin-bottom:50px;">
+			    	<%= render 'partials/addresses_form' %> 
+			    </div>    
+			      	<span style="font-size:24px; ">Adresa za račun  </span>
+			    <div id="AddressCheck">
+			    	<label > Koristi adresu dostave:
+			    		<input  type="checkbox" id="checkbox1" value="value" />
+			    	</label>
+			    </div><br>
+
+			    <div id="azr">
+			    <%= render 'partials/addresses_form' %> 
+			    </div> 
+
+			 	<input id="adresa" name="adresa" type="hidden" value="0" />
+				<% end %>	
+
+		    </div>	    
+	</div>
+
+	<div class="col-md-3" >
+		<strong>Cijena: <%=@suma %>KM</strong > <br>
+		<strong>Dostava: 30KM</strong><br>
+		<strong>Ukupno: <%=@suma+30.0 %>KM</strong><br><br>
+		 <button onclick="goBack()">NAZAD</button>
+
+		
+		<input type="button" value="NASTAVI" id="Button" />
+		
+	</div>
+
+</div>
+ <%= render :partial => "partials/footer" %>
+ <script type="text/javascript">
+   $(document).ready(function() {
+    $('#adr-click').hide();
+         $("#Button").click(function() {
+             $("#forma_adrese").submit();
+         });
+
+        $("#link-adrese").click(function() {  
+          $('#adr-click').css("display", "block");
+          $('#koristene-adrese').css("display", "none");
+          return false;
+        });
+      $("#link-koristeni").click(function() { 
+          $('#koristene-adrese').css("display", "block");
+          $('#adr-click').css("display", "none");
+          return false;
+        });   
+
+         
+      $('#checkbox1').change(function() {
+        
+         if($(this).is(":checked")) 
+         {
+              $('#azr').hide();
+              $('#adresa').val("1");
+              return;
+          }
+
+         else 
+         {
+          $('#azr').show();
+          $('#adresa').val("0");
+          return;
+         }  
+
+    });
+  });
+    function goBack() {
+        window.history.back();
+    }
+
+</script>

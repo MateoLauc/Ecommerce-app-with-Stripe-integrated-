@@ -31,10 +31,19 @@ class LineItemsController < ApplicationController
     kolicina= params[:qty]
     @line_item = @cart.line_items.build(:variant_id => params[:variant_id],:cart_id =>@cart, :qty =>kolicina)
 
+    #Pronalazak kategorije radi redirekcije 
+
+    
+
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to(carts_show_url,
-:notice => 'Line item was successfully created.' ) }
+        if session[:category]
+          format.html { redirect_to( :controller =>'categories' , :action => 'show', :id => session[:category])}
+        
+        else
+        format.html { redirect_to( :controller =>'lander' , :action => 'index')}
+                      #:notice => 'Line item was successfully created.'
+end
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }

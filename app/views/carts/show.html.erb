@@ -35,11 +35,11 @@
 
 
 	<div class="col-md-3" >
-		<fieldset class="scheduler-border">
+		
 		<strong>Cijena: <%=@suma %>KM</strong > <br>
 		<strong>Dostava: 30KM</strong><br>
 		<strong>Ukupno: <%=@suma+30.0 %>KM</strong>
-	</fieldset>
+		<%= button_to "NASTAVI", new_address_path, :method => "get" %>
 	</div>
 
 </div>

@@ -3,6 +3,7 @@ class CategoriesController < ApplicationController
   def show
       # Pronaći ID poslane kategorije i onda iz nje izabrati proizvode
       @category= Category.find(params[:id])
+      session[:category]=params[:id]
       query = QueryBuilder.build(params)
       @variants= Variant.joins(:size).where(query).order('price'+' '+ smjer).joins(:product).where(products: {category_id: @category.id})
       #@variants=@variants.limit(16) opt

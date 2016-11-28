@@ -12,6 +12,7 @@ class CartsController < ApplicationController
    puts session[:cart_id]
    @line_items= LineItem.where(cart_id: @cart.id).joins(variant: :product,variant: :size,variant: :color)
    @suma=@line_items.sum("variants.price* line_items.qty");
+   session[:suma]=  @suma;
   # @line_items.each do |li|
   #@suma+= li.product.
   
